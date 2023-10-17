@@ -25,4 +25,12 @@ public class DemoController {
         return demoService.save();
     }
 
+
+    @GetMapping("/error")
+    public String error(){
+
+        return demoService.error();
+
+    }
+
 }
