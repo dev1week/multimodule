@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.16'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'dev.be'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//api모듈이 common을 참조함
+	implementation project(':module-common') //root prj -> setting.gradle에 선언한 값과 동일해야함
+	//현재 모듈내에 존재하는 setting.gradle 삭제해야함
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+tasks.register("prepareKotlinBuilderScriptModel")
