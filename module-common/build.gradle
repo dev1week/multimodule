@@ -39,3 +39,17 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+//common 모듈은 다른 모듈에서 참조만하고 실행은 하지 않는다
+//즉 굳이 빌드시 실행가능한 jar 파일을 만들 필요가 없다.
+tasks.bootJar{enabled= false} //xxx.jar로 생성 => dependency 까지 같이 포함
+tasks.jar{enabled = true}	//xxx-plain.jar로 생성 => class, resource만을 포함
+
+//빌드 명령어
+// ./gradlew clean :module-api:buildNeeded --stacktrace --info --refresh-dependencies -x test
+//debug => info => warn => error
+
+
+//cd module-api
+// cd build/libs
+// java -jar module-api-0.0.1-SNAPSHOT.jar
