@@ -22,7 +22,7 @@ public class DemoController {
 
     @GetMapping("/find")
     public String find(){
-        return demoService.save();
+        return demoService.find();
     }
 
 

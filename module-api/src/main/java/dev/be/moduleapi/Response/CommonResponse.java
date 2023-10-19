@@ -19,6 +19,9 @@ public class CommonResponse<T> {
     //Dto 담을려는 용도로 제너릭스로 선언함
     private T info;
 
+    public CommonResponse(String returnCode, String returnMessage, T info){
+
+    }
 
     public CommonResponse(CodeEnum codeEnum){
         setReturnCode(codeEnum.getCode());
