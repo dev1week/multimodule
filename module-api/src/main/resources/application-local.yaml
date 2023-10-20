@@ -1,0 +1,29 @@
+profile-name : local
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/OceanKeeper?serverTimezone=Asia/Seoul
+    username: ${LOCAL_DB_USER}
+    password: ${LOCAL_DB_PASSWORD}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    view:
+      prefix: /templates/
+      suffix: .mustache
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size : 30MB
+      max-request-size: 10MB
+
+  jpa:
+    hibernate:
+      ddl-auto: create #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true

@@ -53,3 +53,5 @@ tasks.jar{enabled = true}	//xxx-plain.jar로 생성 => class, resource만을 포
 //cd module-api
 // cd build/libs
 // java -jar module-api-0.0.1-SNAPSHOT.jar
+
+//java -jar -Dspring.profiles.active=local module-api-0.0.1-SNAPSHOT.jar
