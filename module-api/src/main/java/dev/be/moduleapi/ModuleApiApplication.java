@@ -4,6 +4,7 @@ package dev.be.moduleapi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //scanVasePackages 옵션을 주어 해결
@@ -14,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 //Repository와 Entity는 common moudle에 존재하기 때문에 정상적인 빈등록을 위해 다음과 같은 애너테이션을 작성한다.
 @EntityScan("dev.be.modulecommon.domain")
 @EnableJpaRepositories(basePackages = "dev.be.modulecommon.repositories")
+//feign 클라이언트 사용 명시
+@EnableFeignClients
 public class ModuleApiApplication {
 
 	public static void main(String[] args) {
